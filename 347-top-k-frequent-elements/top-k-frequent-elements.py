@@ -3,5 +3,8 @@ import heapq
 
 class Solution:
     def topKFrequent(self, nums, k):
-        count = Counter(nums)
-        return heapq.nlargest(k, count.keys(), key=count.get)
+       
+        freq_map = Counter(nums)
+
+       
+        return [item for item, freq in heapq.nlargest(k, freq_map.items(), key=lambda x: x[1])]
